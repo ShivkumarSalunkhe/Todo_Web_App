@@ -20,7 +20,7 @@ export const  RouteContextProvider =({children})=> {
     try {
         const res = await axios.post(PORT+'/api/item', {item:itemText})
         setListItems(prev => [...prev, res.data])
-        // console.log(res.data.item);
+
         setItemText('')
         additemtoast()
     } catch (error) {
@@ -32,9 +32,9 @@ export const  RouteContextProvider =({children})=> {
     const getItemList = async ()=>{
       try {
           const res = await axios.get(PORT+'/api/items');
-          // console.log(res);
+      
           setListItems(res.data)
-          // console.log(res.data)
+      
       } catch (error) {
         console.log(error);
       }
@@ -47,7 +47,7 @@ export const  RouteContextProvider =({children})=> {
     try {
       const res = await axios.delete(`${PORT}/api/item/${id}`)
       const newListItems = listItems.filter(item => item._id !== id)
-      // console.log(res);
+
       deleteitemtoast()
       setListItems(newListItems)
     } catch (error) {
