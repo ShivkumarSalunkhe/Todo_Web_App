@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect } from 'react'
 import { useState} from 'react'
 import axios from 'axios'
 import ToastContext from './ToastContext'
-const PORT = 'https://todowebapp.onrender.com'
+const PORT = 'https://todo-web-app-4j59.onrender.com'
 const RouteContext = createContext()
 
 export const  RouteContextProvider =({children})=> {
@@ -47,7 +47,7 @@ export const  RouteContextProvider =({children})=> {
     try {
       const res = await axios.delete(`${PORT}/api/item/${id}`)
       const newListItems = listItems.filter(item => item._id !== id)
-      console.log(res);
+      // console.log(res);
       deleteitemtoast()
       setListItems(newListItems)
     } catch (error) {
